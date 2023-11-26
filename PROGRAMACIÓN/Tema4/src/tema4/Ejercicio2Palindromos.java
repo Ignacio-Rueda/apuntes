@@ -43,7 +43,7 @@ public class Ejercicio2Palindromos {
             }
             //Si se han introducido caracteres correctos.
             if(!repetir){
-            for (int n = 0, z = palabra.length() - 1; n < palabra.length(); n++, z--) {
+            for (int n = 0, z = palabra.length() - 1; n < palabra.length()/2; n++, z--) {
                 if (palabra.charAt(z) != palabra.charAt(n)) {
                     palindromo = false;
                 }
