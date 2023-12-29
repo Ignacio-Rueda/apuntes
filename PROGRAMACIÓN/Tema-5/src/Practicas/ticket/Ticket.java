@@ -34,15 +34,12 @@ public class Ticket {
     /*----------------------------------------
                 CONSTRUCTORES
     ---------------------------------------*/
-    //Constructor sin parámetros
-    public Ticket() throws IllegalArgumentException {
-        //Generar un ticket para ser usado en la fecha actual (hoy).
-        this(Ticket.FECHA_ACTUAL);
-    }
-
     //Constructor con parámetros.
-    public Ticket(LocalDate fechaIntroducida) throws IllegalArgumentException {
+    public Ticket(LocalDate fechaIntroducida) throws IllegalArgumentException,IllegalStateException {
 
+        if(fechaIntroducida == null){
+            throw new IllegalArgumentException("Fecha inválida (null)");
+        }
         //Lanzamos una excepción si la fecha es anterior a la actual.
         LocalDate fechaActual = LocalDate.now();
         if (fechaIntroducida.isBefore(fechaActual)) {
@@ -50,7 +47,7 @@ public class Ticket {
         }
         //Lanzamos una excepción si el año de la fecha es posterior al actual.
         if (fechaIntroducida.getYear() > fechaActual.getYear()) {
-            throw new IllegalArgumentException("Año introducido no válido");
+            throw new IllegalStateException("Año introducido no válido");
         }
 
         //Comprobar si podemos añadir un ticket mas al año.
@@ -68,6 +65,12 @@ public class Ticket {
             throw new IllegalArgumentException("No puedes crear más ticket este año");
         }
 
+    }
+    //Constructor sin parámetros
+
+    public Ticket() throws IllegalArgumentException {
+        //Generar un ticket para ser usado en la fecha actual (hoy).
+        this(LocalDate.now());
     }
 
     /*-------------------------------
@@ -119,7 +122,7 @@ public class Ticket {
         //Para ello debemos obtener el número de días del mes actual.
         int totalDiasMesActual = Ticket.FECHA_ACTUAL.lengthOfMonth();
         int diaActual = Ticket.FECHA_ACTUAL.getDayOfMonth();
-        int diaRandom = (int) (Math.random() * (totalDiasMesActual-diaActual+1));
+        int diaRandom = (int) (Math.random() * (totalDiasMesActual - diaActual + 1));
         //Una vez que tenemos el día aleatorio pasamos la fecha al constructor.
         LocalDate fechaRandom = LocalDate.of(Ticket.FECHA_ACTUAL.getYear(), Ticket.FECHA_ACTUAL.getMonth(), diaRandom);
         ticketRandom = new Ticket(fechaRandom);
@@ -127,15 +130,15 @@ public class Ticket {
     }
 
     public static Ticket random() {
-        
+
         int diaActual = Ticket.FECHA_ACTUAL.getDayOfYear();
-        
-        int ultimoDia = 365 +(Ticket.FECHA_ACTUAL.isLeapYear()?1:0);
-        
-        int diasRandom = (int) (Math.random()*(ultimoDia-diaActual+1));
-        
+
+        int ultimoDia = 365 + (Ticket.FECHA_ACTUAL.isLeapYear() ? 1 : 0);
+
+        int diasRandom = (int) (Math.random() * (ultimoDia - diaActual + 1));
+
         LocalDate fechaRandom = Ticket.FECHA_ACTUAL.plusDays(diasRandom);
-        
+
         Ticket ticket = new Ticket(fechaRandom);
         return ticket;
     }
