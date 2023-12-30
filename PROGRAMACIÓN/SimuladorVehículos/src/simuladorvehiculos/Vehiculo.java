@@ -278,7 +278,7 @@ public class Vehiculo {
             //Llenar depósito.
             this.nivelActualDeposito += diferencia;
             //Cantidad rebosado
-            double rebosado = litros-this.nivelActualDeposito;
+            double rebosado = litros - this.nivelActualDeposito;
             String strRebosado = String.format("%.2f", rebosado);
             //Al rebosar, lanzar la excepción.
             throw new IllegalArgumentException("Error: Depósito lleno. Se ha sobrepasado la capacidad del depósito de combustible en " + strRebosado + " litros.");
@@ -308,6 +308,8 @@ public class Vehiculo {
         //Arrancar el motor de un vehículo hará que se produzca una pequeña cantidad de consumo de combustible.
         //Incrementar el consumo.
         this.consumoRealizado += Vehiculo.CONSUMO_ARRANQUE_VEHICULO;
+        this.consumoTotalRealizado += Vehiculo.CONSUMO_ARRANQUE_VEHICULO;
+        Vehiculo.consumoRealizadoTodosVehiculos += Vehiculo.CONSUMO_ARRANQUE_VEHICULO;
         //Decrementar el nivel del depósito.
         this.nivelActualDeposito -= Vehiculo.CONSUMO_ARRANQUE_VEHICULO;
         //Incrementar número de vehículos totales con el motor encendido.
@@ -347,12 +349,18 @@ public class Vehiculo {
             distanciaRecorrida = (this.nivelActualDeposito * 100) / this.consumoMedio;
             double kmNoRecorridos = distanciaKm - distanciaRecorrida;
             String strKmNoRecorridos = String.format("%.2f", kmNoRecorridos);
-            //Dejamos el nivel de combustible a cero,lo hemos agotado.
-            this.nivelActualDeposito = 0;
+
             //Apagamos el motor.
             this.estadoMotor = false;
+            Vehiculo.numVehiculosMotorEncendido--;
+            this.kmTotalRecorridos += distanciaRecorrida;
+            Vehiculo.distanciaRecorridaTodosVehiculos += distanciaRecorrida;
             //Dejamos el consumo a cero.
             this.consumoRealizado = 0;
+            this.consumoTotalRealizado += this.nivelActualDeposito;
+            Vehiculo.consumoRealizadoTodosVehiculos += this.nivelActualDeposito;
+            //Dejamos el nivel de combustible a cero,lo hemos agotado.
+            this.nivelActualDeposito = 0;
             throw new IllegalStateException("Error: no se ha podido finalizar el trayecto completamente. Depósito vacío. Han faltado por recorrer " + strKmNoRecorridos + " km");
         }
         //Una vez realizadas las comprobaciones:
