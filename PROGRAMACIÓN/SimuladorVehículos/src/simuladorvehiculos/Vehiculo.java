@@ -41,6 +41,7 @@ package simuladorvehiculos;
  * <li><strong>Número de vehículos con el motor encendido</strong>Este valor
  * establecerá el número de vehículos con el motor encendido.</li>
  * </ul>
+ * comentario para comprobar función git eclipse.
  */
 public class Vehiculo {
 
@@ -112,7 +113,7 @@ public class Vehiculo {
      * @throws IllegalArgumentException arrojará una excepción si alguno de los
      * dos parámetros anteriores no cumple con las condiciones.
      */
-    public Vehiculo(double capacidadDeposito, double consumoMedio) throws IllegalArgumentException {
+    public Vehiculo(double consumoMedio,double capacidadDeposito) throws IllegalArgumentException {
         //Comprobar si los parámetros cumplen con las condiciones.
         if (capacidadDeposito < Vehiculo.MINIMA_CAPACIDAD_DEPOSITO || capacidadDeposito > Vehiculo.MAXIMA_CAPACIDAD_DEPOSITO) {
             throw new IllegalArgumentException("Error en el valor asignado a la capacidad del depósito");
@@ -136,7 +137,7 @@ public class Vehiculo {
      * Constructor sin parámetros.
      */
     public Vehiculo() {
-        this(Vehiculo.DEFAULT_CAPACIDAD_DEPOSITO, Vehiculo.DEFAULT_CONSUMO_MEDIO);
+        this( Vehiculo.DEFAULT_CONSUMO_MEDIO,Vehiculo.DEFAULT_CAPACIDAD_DEPOSITO);
     }
 
     /*
