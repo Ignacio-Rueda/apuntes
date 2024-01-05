@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/EstructuraDatos/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/Ioc/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/Pruebas/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/SimuladorVehículos/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/tema_1/Cadenas/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/tema_1/CalcularIva/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/tema_1/EjemploTipos/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/tema_1/EjerciciosResueltos/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/tema_1/EjerciciosTiposPrimitivos/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/tema_1/OperacionesAritemeticas/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/tema_1/Operadores/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/tema_1/TiposEnumerados/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/tema_1/Velocidad/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/tema-2"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/Tema4/src"/>
+	<classpathentry kind="src" path="PROGRAMACIÓN/Tema-5/src"/>
+	<classpathentry kind="lib" path="PROGRAMACIÓN/Tema4/dist/Tema4.jar"/>
+	<classpathentry kind="output" path="PROGRAMACIÓN/EstructuraDatos/build/classes"/>
+</classpath>

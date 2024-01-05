@@ -2,18 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package tema4;
+package pruebas;
 
 /**
  *
  * @author Ignacio Rueda
  */
-public class Tema4 {
+public class Pruebas {
 
-   
     public static void main(String[] args) {
-        System.out.println("Hello world! prueba git desde netbeans");
-       
+        int minutosVuelo = 343;
+        float horasVuelo = ((float)(minutosVuelo)/60f);
+        System.out.println(horasVuelo);
+        
     }
     
 }

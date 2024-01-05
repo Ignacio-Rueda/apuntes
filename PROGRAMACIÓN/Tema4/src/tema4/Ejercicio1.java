@@ -36,6 +36,7 @@ public class Ejercicio1 {
             }
             if ((nombre.length() > 0 && nombre.length() <= 10) && (nombre.charAt(0)>='A' && nombre.charAt(0)<='Z') && minus ) {
                 apto = true;
+                
             } else {
                 System.out.println("Error: nombre no válido");
             }
