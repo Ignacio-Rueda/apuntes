@@ -14,6 +14,7 @@ public class FormacionRomana {
 		String formacionSeleccionada = "";
 		int restoSoldados = 0;
 		String espaciosFormacion = "";// Incialmente 0.
+		String forma = "";
 
 		// Creamos objeto Scanner.
 		Scanner teclado = new Scanner(System.in);
@@ -32,7 +33,7 @@ public class FormacionRomana {
 		switch (formacionSeleccionada) {
 		case "LINEA":
 			for (int n = 0; n < numSoldados; n++) {
-				System.out.print("*");
+				forma += "*";
 			}
 			break;
 		case "CUADRADO":
@@ -42,18 +43,13 @@ public class FormacionRomana {
 
 			for (int n = 0; n < numSoldadosPosibles; n++) {
 				for (int l = 0; l < numSoldadosPosibles; l++) {
-					System.out.print("*");
+					forma += "*";
 				}
 				// Por cada fila que pintemos, saltamos de línea
-				System.out.println("");
+				forma += "\n";
 			}
 			// Calcular cuántos soldados sobran.
 			restoSoldados = numSoldados - (numSoldadosPosibles * numSoldadosPosibles);
-			if (restoSoldados > 0) {
-				System.out.printf(
-						"De los %d soldados asignados, una vez hecha la mayor formación posible del tipo indicado, sobran %d soldados.",
-						numSoldados, restoSoldados);
-			}
 			break;
 		case "TRIANGULO":
 			// Triángulo perfecto invertido (terminando en la última fila con un soldado).
@@ -63,28 +59,30 @@ public class FormacionRomana {
 			for (int n = 0; n < numSoldadosPosibles; n++) {
 				for (int l = 0; l < numSoldadosPosibles - n; l++) {
 					if (l == 0) {
-						System.out.print(espaciosFormacion);
+						forma += espaciosFormacion;
 					}
-
-					System.out.print("* ");
-					restoSoldados++;
+					forma += "* ";
+					restoSoldados++;// Soldados que sobran.
 				}
 				// Una vez terminada la fila, salto de línea.
-				System.out.println("");
+				forma += "\n";
 				// Incrementamos espacios formacion.
 				espaciosFormacion += " ";
 			}
 			// Calcular cuántos soldados sobran.
 			restoSoldados = (numSoldados - restoSoldados);
-			if (restoSoldados > 0) {
-				System.out.printf(
-						"De los %d soldados asignados, una vez hecha la mayor formación posible del tipo indicado, sobran %d soldados.",
-						numSoldados, restoSoldados);
-			}
+
 			break;
 		default:
-			System.out.println("Opción NO CORRECTA");
+			System.out.print("Opción NO CORRECTA");
 
+		}
+		// Salida de los resultados.
+		System.out.println(forma);
+		if (restoSoldados > 0) {
+			System.out.printf(
+					"De los %d soldados asignados, una vez hecha la mayor formación posible del tipo indicado, sobran %d soldados.",
+					numSoldados, restoSoldados);
 		}
 	}
 
