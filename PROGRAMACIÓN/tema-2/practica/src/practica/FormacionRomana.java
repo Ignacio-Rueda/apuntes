@@ -71,13 +71,15 @@ public class FormacionRomana {
 			}
 			// Calcular cuántos soldados sobran.
 			restoSoldados = (numSoldados - restoSoldados);
-
 			break;
 		default:
 			System.out.print("Opción NO CORRECTA");
 
 		}
+		//--------------------------
 		// Salida de los resultados.
+		//-------------------------
+		
 		System.out.println(forma);
 		if (restoSoldados > 0) {
 			System.out.printf(
