@@ -61,6 +61,8 @@ public class SimuladorMaquinaTragaperras {
 		// Mostrar resultados
 		// ------------------
 		System.out.printf("%sHas conseguido el premio %d en el intento %d con la secuencia:%s",resultado,posPremio,contadorIntentos,combinacionObtenida);
+		
+	
 	}
 }
 
