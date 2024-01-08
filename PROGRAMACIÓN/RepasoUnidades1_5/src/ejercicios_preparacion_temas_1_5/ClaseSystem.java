@@ -30,7 +30,7 @@ public class ClaseSystem {
 		 try {
 			 BufferedReader lec = new BufferedReader(new InputStreamReader(System.in));
 			 System.out.println("Introduce un número entero");
-			 int numEntero = (lec.read());//Inconveniente de tener que convertir todos los datos que no sean del tipo String.
+			 int numEntero = (lec.read());
 			 System.out.println(numEntero);
 		 }catch(Exception e) {
 			 e.printStackTrace();
