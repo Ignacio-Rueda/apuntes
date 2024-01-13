@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package pruebas;
-
+import java.util.Scanner;
+import java.util.StringTokenizer;
 /**
  *
  * @author Ignacio Rueda
@@ -11,9 +12,11 @@ package pruebas;
 public class Pruebas {
 
     public static void main(String[] args) {
-        int minutosVuelo = 343;
-        float horasVuelo = ((float)(minutosVuelo)/60f);
-        System.out.println(horasVuelo);
+        StringBuilder miCadena = new StringBuilder ("Nacho");
+        miCadena.append(" Rueda");
+        miCadena.replace(5,6,"-");
+        miCadena.delete(2, 140);
+        System.out.println(miCadena);
         
     }
     
