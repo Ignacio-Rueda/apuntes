@@ -1,4 +1,4 @@
-package ejercicios_preparacion_temas_1_5.Desordenados.EntrenamientoExamenFebrero;
+package ejercicios_preparacion_temas_1_5.EntrenamientoExamenFebrero;
 
 import java.util.Arrays;
 
