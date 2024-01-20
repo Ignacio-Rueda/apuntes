@@ -1,5 +1,7 @@
 package ejercicios_preparacion_temas_1_5.EntrenamientoExamenFebrero;
+
 import java.util.Arrays;
+
 public class NumeroAPalabra99 {
 
     /**
@@ -31,7 +33,7 @@ public class NumeroAPalabra99 {
             {"ochenta"},
             {"noventa"}
         };
-        int contador;
+    
 
         //----------------------------------------------
         //                Entrada de datos 
@@ -44,7 +46,21 @@ public class NumeroAPalabra99 {
         //----------------------------------------------
         //  Procesamiento (a implementar por el alumnado)
         //----------------------------------------------
-         
+        arrayResultado = new String[arrayEntrada.length];//Otorgamos el tamaño al array de entrada.
+
+        for (int n = 0; n < arrayEntrada.length; n++) {
+            int unidad = arrayEntrada[n] % 10;
+            int decena = arrayEntrada[n] / 10;
+            
+            switch (decena) {
+                case 0:case 1:case 2:
+                    arrayResultado[n] = arrayNombresNumeros[decena][unidad];
+                    break;
+                default:
+                    arrayResultado[n] = unidad > 0 ? arrayNombresNumeros[decena][0] + " y " + arrayNombresNumeros[0][unidad] : arrayNombresNumeros[decena][0];
+                   
+            }
+        }//Final bucle
 
         //----------------------------------------------
         //              Salida de resultados 
