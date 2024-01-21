@@ -1,6 +1,5 @@
 package ejercicios_preparacion_temas_1_5.EntrenamientoExamenFebrero;
 
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,7 +9,7 @@ import java.util.regex.Pattern;
  */
 public class CompraVideojuego {
 
-    //DeclaraciÃ³n atributos objeto.
+    //Declaración atributos objeto.
     private int cantidadPS5;
     private int cantidadXbox;
     private int cantidadSwitch;
@@ -19,10 +18,10 @@ public class CompraVideojuego {
     private double gastoXbox;
     private double gastoSwitch;
 
-    //DeclaraciÃ³n constructor
+    //Declaración constructor
     public CompraVideojuego(String ticket) {
 
-        //Para separar cada artÃ­culo, usamos mÃ©todo split de String
+        //Para separar cada artí­culo, usamos método split de String
         String[] arrayArticulos = ticket.split("#");
         //Para identificar los diferentes elementos utilizaremos expresiones regulares.
         //                            Nombre    Nombre plataforma   Gasto total articulos
@@ -31,9 +30,9 @@ public class CompraVideojuego {
         
         //Recorremos ticket
         for (int n = 0; n < arrayArticulos.length; n++) {
-            //Controlamos que el ticket sigue el patrÃ³n.
+            //Controlamos que el ticket sigue el patrón.
             Matcher acoplamiento = patron.matcher(arrayArticulos[n]);
-            if (acoplamiento.find()) {
+            if (acoplamiento.matches()) {
                 String nombrePlataforma = acoplamiento.group(2);
                 //Buscamos la plataforma y asignamos valores.
 
@@ -53,14 +52,14 @@ public class CompraVideojuego {
                 }
                 
             } else {
-                //ArtÃ­culos no vÃ¡lidos.
+                //Artí­culos no válidos.
             }
         }
 
 
     }
 
-    //DeclaraciÃ³n de mÃ©todos getters
+    //Declaración de métodos getters
     public int getCantidad(String plataforma) {
         int resultado = 0;
         switch (plataforma) {
@@ -107,13 +106,19 @@ public class CompraVideojuego {
     public static void main(String[] args) {
         final double cantidadIva = 21;
         String ticket = "God of War Ragnarok,PS5,66.10#FIFA 23,XBOX,57.84#NBA 2k23,XBOX,37.18#Mario Kart 8 Deluxe,Switch,41.31#Need For Speed Unbound,PS5,56.19";
-        CompraVideojuego miCompra = new CompraVideojuego(ticket);
+        CompraVideojuego miCompra;
         String[]plataformas = {"PS5","SWITCH","XBOX"};
         StringBuilder resultado = new StringBuilder();
         
+        System.out.println("EJERCICIO 3.COMPRA DE VIDEOJUEGOS");
+        System.out.println("---------------------------------");
+        System.out.printf( "Creando objeto de compra con el ticket:%n\"%s\"%n",ticket);
+        
+        miCompra  = new CompraVideojuego(ticket);
+        
         for(int n=0;n<plataformas.length;n++){
         
-            resultado.append(String.format("%d Videojuego/s %s %.2fâ‚¬ (%.2fâ‚¬ IVA incluido)%n", 
+            resultado.append(String.format("%d Videojuego/s %s %.2f Euros (%.2f Euros IVA incluido)%n",  
                     miCompra.getCantidad(plataformas[n]),
                     plataformas[n],
                     miCompra.getGasto(plataformas[n]),
@@ -121,7 +126,7 @@ public class CompraVideojuego {
     
             ));
         }
-        resultado.append(String.format("%s%nTotal: %.2fâ‚¬ (%.2fâ‚¬ IVA incluido)",
+        resultado.append(String.format("%s%nTotal: %.2fEuros (%.2f Euros IVA incluido)",
                 "--------------------------------------------------",
                     miCompra.getGastoTotal(),
                     miCompra.getIvaIncluido(miCompra.getGastoTotal(), cantidadIva)
