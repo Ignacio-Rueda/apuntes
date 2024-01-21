@@ -2,6 +2,7 @@ package ejercicios_preparacion_temas_1_5.Arrays;
 
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 
 public class ArrayRomboCaracteres {
 
@@ -15,11 +16,17 @@ public class ArrayRomboCaracteres {
 
         System.out.println("ARRAY 2D EN FORMA DE ROMBO");
         System.out.println("--------------------------");
-
-        System.out.println("Introduzca el número de filas \"base\" (3-10):");
         Scanner teclado = new Scanner(System.in);
-        numFilasBase = teclado.nextInt();
-        numFilasDuplicadas = numFilasBase*2;
+        while (numFilasBase < 3 || numFilasBase > 10) {
+            try {
+                System.out.println("Introduzca el número de filas \"base\" (3-10):");
+                numFilasBase = teclado.nextInt();
+            } catch (InputMismatchException ex) {
+                teclado.nextLine();//Purgamos lo que haya en el buffer.Evita que el programa quede en un bucle infinito tratando de leer el mismo token incorrecto, ya que si no se purga el buffer después de una excepción. el token incorrecto seguirá estando allí.
+            }
+        }
+
+        numFilasDuplicadas = numFilasBase * 2;
         miArray = new char[numFilasDuplicadas][];
         int elementos = 1;
         //GENERAR LAS COLUMNAS CORRESPONDIENTES.
@@ -43,7 +50,7 @@ public class ArrayRomboCaracteres {
             for (int j = 0; j < miArray[i].length; j++) {
                 miArray[i][j] = (char) inicioCaracter;
                 resultado.append(String.format("%c ", miArray[i][j]));
-                
+
             }
             resultado.append("\n");
             inicioCaracter++;
@@ -73,7 +80,7 @@ public class ArrayRomboCaracteres {
             System.out.printf(espacio);
             for (int l = 0; l < miArray[n].length; l++) {
 
-                System.out.printf("%c ",miArray[n][l]);
+                System.out.printf("%c ", miArray[n][l]);
 
             }//Bucle interior
             System.out.println("");
