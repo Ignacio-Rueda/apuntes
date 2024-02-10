@@ -21,7 +21,7 @@ public class Pais {
         this.comunidades = new Comunidades[comunidades.length];
 
         for (int n = 0; n < comunidades.length; n++) {
-            this.comunidades[n] = comunidades[n];
+            this.comunidades[n] = new Comunidades (comunidades[n].getNombreComunidad(),comunidades[n].getNombreProvincias());//Evitamos la modificación
         }
     }
 
