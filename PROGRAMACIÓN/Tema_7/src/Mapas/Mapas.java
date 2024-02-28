@@ -1,7 +1,10 @@
 
 package Mapas;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.List;
+import java.util.ListIterator;
 public class Mapas {
     public static void main(String[]args){
         //CREACIÓN MAPA.
@@ -33,6 +36,49 @@ public class Mapas {
         for(String valor:codigoCliente.values()){
             System.out.println(valor);
         }
+        
+        System.out.println();
+        System.out.println("MAPAS DE MAPAS");
+        System.out.println("*************************************************");
+        System.out.println("COMUNIDADES AUTÓNOMAS Y PROVINCIAS");
+        
+        Map <String,List<String>> comunidadesProvincias = new HashMap<>();
+        List<String>provinciasAndalucia = new LinkedList<>();
+        List<String>provinciasExtremadura = new LinkedList<>();
+        List<String>provinciasAragon = new LinkedList<>();
+        
+        //PROVINCIAS ANDALUCÍA
+        provinciasAndalucia.add("JAÉN");
+        provinciasAndalucia.add("GRANADA");
+        provinciasAndalucia.add("MÁLAGA");
+        provinciasAndalucia.add("ALMERÍA");
+        provinciasAndalucia.add("CÁDIZ");
+        provinciasAndalucia.add("HUELVA");
+        provinciasAndalucia.add("SEVILLA");
+        provinciasAndalucia.add("CÓRDOBA");
+        //PROVINCIAS EXTREMADURA
+        provinciasExtremadura.add("CÁCERES");
+        provinciasExtremadura.add("BADAJOZ");
+        //PROVINCIAS ARAGÓN
+        provinciasAragon.add("HUESCA");
+        provinciasAragon.add("ZARAGOZA");
+        provinciasAragon.add("TERUEL");
+        
+        comunidadesProvincias.put("ANDALUCÍA", provinciasAndalucia);
+        comunidadesProvincias.put("EXTREMADURA", provinciasExtremadura);
+        comunidadesProvincias.put("ARAGÓN",provinciasAragon);
+        
+        
+        for(Map.Entry<String,List<String>> provincias : comunidadesProvincias.entrySet()){
+            System.out.printf("LA COMUNIDAD AUTÓNOMA: %s ESTÁ COMPUESTA POR: \n",provincias.getKey());
+            ListIterator <String> it = provincias.getValue().listIterator();
+            while(it.hasNext()){
+                System.out.println(it.next());
+            }
+        }
+        
+    
+        
         
         
         
