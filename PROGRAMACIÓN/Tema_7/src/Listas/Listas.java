@@ -87,6 +87,19 @@ public class Listas {
             }
             System.out.println();
         }
+        
+        
+        List<List<Integer>> otraLista = new LinkedList<>();
+        
+        for(int n=0;n<10;n++){
+            List<Integer> datos;
+            otraLista.add(datos = new LinkedList<>());
+            for(int j=0;j<5;j++){
+                datos.add(j);
+            }
+        }
+        
+        System.out.println(otraLista);
     }
 
 }
