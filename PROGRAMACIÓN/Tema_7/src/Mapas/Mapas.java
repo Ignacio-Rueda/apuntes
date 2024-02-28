@@ -1,5 +1,5 @@
 
-package tema_7.Mapas;
+package Mapas;
 import java.util.HashMap;
 import java.util.Map;
 public class Mapas {
